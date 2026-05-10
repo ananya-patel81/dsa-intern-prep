@@ -1,3 +1,41 @@
+// BETTER TC=O(NlogN)
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        int n=nums.size();
+        int lastsmaller=INT_MIN;
+        int cnt=0;
+        int longest=0;
+        sort(nums.begin(),nums.end());
+        for(int i=0;i<n;i++){
+            if(lastsmaller==nums[i]-1){
+                cnt++;
+                lastsmaller=nums[i];
+                
+
+
+            }
+            
+            else if(lastsmaller+1 < nums[i]){
+                cnt=1;
+                lastsmaller=nums[i];
+
+            }
+            longest = max(longest,cnt);
+        }
+
+        
+
+        return longest;
+
+        
+        
+    }
+};
+
+
+
+//OPTIMAL TC=O(N)
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
