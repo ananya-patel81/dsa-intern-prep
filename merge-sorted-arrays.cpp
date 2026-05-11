@@ -3,7 +3,7 @@
 // the second array in the first, that means all the second array elements are larger than the last element of the first array. So to check the 
 // assumption, you check the last element of the first array with the last element of second array, and place them accordingly, and iterate both 
 // from back. 
-
+// https://takeuforward.org/data-structure/merge-two-sorted-arrays-without-extra-space - Solution article 
 
 
 
