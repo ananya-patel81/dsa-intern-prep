@@ -40,6 +40,54 @@ public:
     }
 };
 
+//XOR method optimal approach. 
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    // Function to find repeating and missing numbers
+    vector<int> findMissingRepeatingNumbers(vector<int>& nums){
+        int n=nums.size();
+        int xr=0;
+        for(int i=0;i<n;i++){
+            xr=xr^nums[i];
+            xr=xr^(i+1);
+        }
+        // now xr stores the value with the differentiating bit; We now need to find the differentiating bit.
+        int bitno=0;
+        while(1){
+            if((xr & (1<<bitno))!=0) break;
+            else bitno++;
+        }
+        // bitno is like the place of the differentiation bit. 
+        // now we club the numbers from the array and the numbers from 1 to n, to numbers with the bit at bitno place as 1 or 0, and xor them to see which ones are repeating and missing. 
+        int zero=0;
+        int one=0;
+        for(int i=0; i<n;i++){
+            if(nums[i] & (1<<bitno)!=0) one = one^nums[i];
+            else zero= zero^nums[i];
+        }
+        for(int i=1; i<n+1;i++){
+            if(i & (1<<bitno)!=0) one = one^i;
+            else zero= zero^i;
+        }
+        
+        int cnt=0;
+        
+        for(int i=0; i<n;i++){
+            if(nums[i]==zero) cnt++;
+        }
+        
+        if(cnt==0) return {one,zero};
+        return {zero,one};
+        
+        
+        
+        
+    }
+};
+
 
 
 
