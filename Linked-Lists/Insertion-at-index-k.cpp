@@ -27,7 +27,7 @@ public:
             return temp;
         }
         Node* current= head;
-        int cnt;
+        int cnt=0;
         while(current!=NULL){
             cnt++;
             if(cnt==k-1){
