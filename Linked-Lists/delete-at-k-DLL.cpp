@@ -88,6 +88,27 @@ public:
         return head;
         
     }
+    void deletenode(Node* node){ //you cannot delete the head, if you want to, then you'd have to readjust it in the code accordingly and assign the next elelment as the head. 
+        if(node==nullptr) return;
+        Node* prev=node->back;
+        Node* front=node->next;
+        if(prev==nullptr){
+            if(front!=nullptr){
+                front->back=nullptr;
+            }
+        }
+        else{
+            prev->next=front;
+            if(front!=nullptr){
+                front->back=prev;
+            }
+        }
+        node->next=nullptr;
+        node->back=nullptr;
+        
+        delete node;
+        
+    }
     
     void printList(Node* head) {
         Node* temp = head;
@@ -105,7 +126,7 @@ int main() {
     head->next->next= new Node(30,nullptr,head->next);
     
     Solution obj;
-    head = obj.deleteAtK(head,2);
+    obj.deletenode(head->next);
     obj.printList(head);
     
     return 0;
