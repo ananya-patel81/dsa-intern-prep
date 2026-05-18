@@ -6,21 +6,16 @@ struct ListNode {
     int val;
     ListNode *next;
     ListNode *child;
-    ListNode() {
-        val = 0;
-        next = NULL;
-        child = NULL;
-    }
-    ListNode(int data1) {
-        val = data1;
-        next = NULL;
-        child = NULL;
-    }
-    ListNode(int data1, ListNode *next1, ListNode* next2) {
-        val = data1;
-        next = next1;
-        child = next1;
-    }
+
+    // Default constructor
+    ListNode() : val(0), next(nullptr), child(nullptr) {}
+
+    // Single value constructor
+    ListNode(int data1) : val(data1), next(nullptr), child(nullptr) {}
+
+    // Fully parameterized constructor
+    ListNode(int data1, ListNode *next1, ListNode* next2) 
+        : val(data1), next(next1), child(next2) {}
 };
 
 class Solution {
