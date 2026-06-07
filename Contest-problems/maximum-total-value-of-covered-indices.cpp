@@ -30,6 +30,20 @@ public:
             if(L!=0) ans+= (sum-(long long)mini);
 
         }
+
+        // You can also use dp types way with the below way 
+        long long ans = 0;
+        long long cur = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (s[i] == '1') {
+                cur = max(cur + nums[i], (long long)nums[i]);
+            } else {
+                ans += cur;
+                cur = 0;
+            }
+        }
+        ans += cur;
         
 
         return ans;
