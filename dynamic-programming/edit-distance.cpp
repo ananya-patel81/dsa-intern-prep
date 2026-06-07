@@ -6,7 +6,8 @@ private:
         if(dp[i][j]!=-1) return dp[i][j];
         if(word1[i-1]==word2[j-1]) return dp[i][j]= f(i-1,j-1,word1,word2, dp);
         
-        return dp[i][j]= 1+ min(f(i-1,j-1,word1,word2,dp),min(f(i-1,j,word1,word2,dp),f(i,j-1,word1,word2,dp)));
+        return dp[i][j]= 1+ min(f(i-1,j-1,word1,word2,dp),min(f(i-1,j,word1,word2,dp),f(i,j-1,word1,word2,dp))); // 1(for any 
+        //one of the operation you perform) + minimum of replace,delete,insert;
         
 
     }
