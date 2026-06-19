@@ -24,7 +24,7 @@ public:
             else if(nums[mid]==2){
                 swap(high,mid,nums);
                 high--;
-                
+                //no mid++ because you swapped with high, and high too had an unsorted element, so you don't know what it is and whether does it contribute to being sorted or not. Whereas when swapping with low, you know you are bringing a 1 and you also know that mid-1 index whould have a 1, so you increment, do pen and paper practice to understand. 
 
             }
 
